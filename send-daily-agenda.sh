@@ -1,5 +1,7 @@
 #!/bin/sh
 
+addresses=$*
+
 org2remind=~/bin/org2remind.pl
 tmpCal=/tmp/tmpCal.$$
 perl $org2remind ~/Dropbox/Documents/org/todo.org ~/Dropbox/Documents/org/media.org | remind -c - > $tmpCal
@@ -18,4 +20,4 @@ footer=`echo "Script used to create this email:" | cat - $0`
 
 echo "$header
 
-$footer" | mail -s "Daily Agenda - $current_time" cmacanka@gmail.com
+$footer" | mail -s "Daily Agenda - $current_time" $addresses
