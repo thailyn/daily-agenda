@@ -11,13 +11,10 @@ emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-
 
 current_time=`date`
 
-header=`(echo "<pre>"; echo "Daily agenda for $current_time:
-"; cat $tmpCal; echo "
-"; cat $tmpfile; echo "</pre>")`
-footer=`echo "Script used to create this email:" | cat - $0`
-#echo "Daily agenda for $current_time:
-#" | cat - Dropbox/Documents/org/agenda.txt | mail -s "Daily Agenda - $current_time" cmacanka@gmail.com
+body=`(echo "Daily agenda for $current_time:
+<pre>"; cat $tmpCal; echo "
+"; cat $tmpfile; echo "</pre>
+Script used to create this email:<br />
+(Currently disabled until the text can be properly escaped.)")`
 
-echo "$header
-
-$footer" | mail -a "MIME-Version: 1.0" -a "Content-Type: text/html" -s "Daily Agenda - $current_time" $addresses
+echo "$body" | mail -a "MIME-Version: 1.0" -a "Content-Type: text/html" -s "Daily Agenda - $current_time" $addresses
