@@ -1,5 +1,9 @@
 #!/bin/sh
 
+org2remind=~/bin/org2remind.pl
+tmpCal=/tmp/tmpCal.$$
+perl $org2remind ~/Dropbox/Documents/org/todo.org ~/Dropbox/Documents/org/media.org | remind -c - > $tmpCal
+
 tmpfile=/tmp/tmpfile.$$
 emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-agenda-files (quote ("~/Dropbox/Documents/org/todo.org" "~/Dropbox/Documents/org/media.org")))' > $tmpfile
 
