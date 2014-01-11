@@ -12,7 +12,7 @@ emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-
 current_time=`date`
 
 body=`(echo "Daily agenda for $current_time:";
-echo '<pre style="font-family:Consolas,monospace;">'; cat $tmpCal; echo "
+echo '<pre style="font-family:Consolas,DejaVu Sans Mono,monospace;">'; cat $tmpCal; echo "
 "; cat $tmpfile; echo "</pre>
 Script used to create this email:<br />
 (Currently disabled until the text can be properly escaped.)")`
