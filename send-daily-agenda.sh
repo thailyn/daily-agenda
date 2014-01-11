@@ -20,4 +20,4 @@ footer=`echo "Script used to create this email:" | cat - $0`
 
 echo "$header
 
-$footer" | mail -s "Daily Agenda - $current_time" $addresses
+$footer" | mail -a "MIME-Version: 1.0" -a "Content-Type: text/html" -s "Daily Agenda - $current_time" $addresses
