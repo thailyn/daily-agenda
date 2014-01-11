@@ -1,8 +1,7 @@
 #!/bin/sh
 
 tmpfile=/tmp/tmpfile.$$
-emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " ")' > $tmpfile
-# emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-agenda-files (quote ("~/Dropbox/Documents/org/todo.org")))' > /home/charles/Dropbox/Documents/org/agenda.txt
+emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-agenda-files (quote ("~/Dropbox/Documents/org/todo.org" "~/Dropbox/Documents/org/media.org")))' > $tmpfile
 
 current_time=`date`
 
