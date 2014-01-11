@@ -11,9 +11,9 @@ emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-
 
 current_time=`date`
 
-header=`(echo "Daily agenda for $current_time:
+header=`(echo "<pre>"; echo "Daily agenda for $current_time:
 "; cat $tmpCal; echo "
-"; cat $tmpfile)`
+"; cat $tmpfile; echo "</pre>")`
 footer=`echo "Script used to create this email:" | cat - $0`
 #echo "Daily agenda for $current_time:
 #" | cat - Dropbox/Documents/org/agenda.txt | mail -s "Daily Agenda - $current_time" cmacanka@gmail.com
