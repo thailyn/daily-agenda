@@ -7,7 +7,7 @@ temp_google_calendar=/tmp/temp_google_calendar.$$
 while read -r line
 do
     wget -nv $line -O $temp_google_calendar
-    curr_cal=`~/temp/ical2rem.rb/bin/ical2rem-cli < $temp_google_calendar`
+    curr_cal=`ical2rem-cli < $temp_google_calendar`
     google_calendars="$google_calendars
 $curr_cal"
 done < "calendar_list"
