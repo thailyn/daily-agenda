@@ -13,8 +13,12 @@ $curr_cal"
 done < "calendar_list"
 
 org2remind=~/bin/org2remind.pl
+orgCal=`perl $org2remind ~/Dropbox/Documents/org/todo.org ~/Dropbox/Documents/org/media.org`
+allCals=`echo "$orgCal
+$google_calendars"`
+
 tmpCal=/tmp/tmpCal.$$
-perl $org2remind ~/Dropbox/Documents/org/todo.org ~/Dropbox/Documents/org/media.org | remind -c - > $tmpCal
+echo "$allCals" | remind -c -w120 - > $tmpCal
 
 tmpfile=/tmp/tmpfile.$$
 emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-agenda-files (quote ("~/Dropbox/Documents/org/todo.org" "~/Dropbox/Documents/org/media.org")))' > $tmpfile
