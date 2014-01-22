@@ -7,7 +7,7 @@ ical2rem="/usr/local/bin/ical2rem-cli"
 temp_google_calendar=/tmp/temp_google_calendar.$$
 while read -r line
 do
-    wget -nv $line -O $temp_google_calendar
+    wget -q $line -O $temp_google_calendar
     curr_cal=`$ical2rem < $temp_google_calendar`
     google_calendars="$google_calendars
 $curr_cal"
