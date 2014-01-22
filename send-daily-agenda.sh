@@ -3,16 +3,17 @@
 addresses=$*
 
 google_calendars=""
+ical2rem="/usr/local/bin/ical2rem-cli"
 temp_google_calendar=/tmp/temp_google_calendar.$$
 while read -r line
 do
     wget -nv $line -O $temp_google_calendar
-    curr_cal=`ical2rem-cli < $temp_google_calendar`
+    curr_cal=`$ical2rem < $temp_google_calendar`
     google_calendars="$google_calendars
 $curr_cal"
-done < "calendar_list"
+done < "/home/charles/projects/daily-agenda/calendar_list"
 
-org2remind=~/bin/org2remind.pl
+org2remind=/home/charles/bin/org2remind.pl
 orgCal=`perl $org2remind ~/Dropbox/Documents/org/todo.org ~/Dropbox/Documents/org/media.org`
 allCals=`echo "$orgCal
 $google_calendars"`
