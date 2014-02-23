@@ -22,7 +22,9 @@ tmpCal=/tmp/tmpCal.$$
 echo "$allCals" | remind -c -w120 - > $tmpCal
 
 tmpfile=/tmp/tmpfile.$$
-emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " " org-agenda-files (quote ("~/Dropbox/Documents/org/todo.org" "~/Dropbox/Documents/org/media.org")))' > $tmpfile
+emacs -batch -l /home/charles/.emacs.d/init.el -eval '(org-batch-agenda " "
+  org-agenda-files (quote ("~/Dropbox/Documents/org/todo.org"
+                           "~/Dropbox/Documents/org/media.org")))' > $tmpfile
 
 current_time=`date`
 
